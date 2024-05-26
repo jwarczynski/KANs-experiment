@@ -4,14 +4,14 @@ import torch.nn as nn
 import torch.optim as optim
 
 MODEL_DIR = "models"
-model_name_template = "{dataset}-{model}-e{epoch}-l{layer_widths}-g{grid_size}-k{spline_order}.pth"
+model_name_template = "{dataset}-{model}-e{epoch}-l{layer_widths}-g{grid_size}-k{spline_order}"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def save_model(model, model_name):
     if not os.path.exists(MODEL_DIR):
         os.makedirs(MODEL_DIR)
-    torch.save(model.state_dict(), f"{MODEL_DIR}/{model_name}")
+    torch.save(model.state_dict(), f"{MODEL_DIR}/{model_name}.pth")
 
 
 def test_accuracy(model, testloader, input_size=32 * 32 * 3, writer=None):
