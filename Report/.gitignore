@@ -3,3 +3,5 @@
 !src
 !src/*.tex
 !src/*.bib
+!src/pics
+!src/pics/*

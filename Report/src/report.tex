@@ -11,7 +11,8 @@
 \usepackage{subcaption} % or \usepackage{subfigure}
 \usepackage{float} % for [H] placement specifier
 \usepackage{multicol}
-\usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref} % after all packages; pdfborder not implemented the same way for every implementation because the specification is imprecise; under miktex you just don't see the frames
+\usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref}
+%\usepackage{caption_2019-09-01} % after all packages; pdfborder not implemented the same way for every implementation because the specification is imprecise; under miktex you just don't see the frames
 
 
 \input{_settings}
@@ -63,15 +64,46 @@ models with fixed size of gird equal to 5 and spline orders ranging from 2 to 12
 \subsection{MNIST Dataset}\label{subsec:mnist}
 
 The MNIST dataset consists of 60,000 training and 10,000 testing grayscale images of handwritten digits.
-The comaprison of traing and validation loss is presented on the left and right side of Figure~\ref{fig:pics/mnist_loss} respectively.
-The comparison of training, validation, and test accuracy is presented in Figure~\ref{fig:pics/mnist_accuracy}.
+The comaprison of traing and validation loss is presented on the left and right side of Figure~\ref{fig:mnist_loss} respectively.
+The comparison of training, validation, and test accuracy is presented in Figure~\ref{fig:mnist_accuracy}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/mnist_loss}
+    \caption{Training and validation loss comparison for MNIST.}
+    \label{fig:mnist_loss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/mnist_accuracy}
+    \caption{Training, validation, and test accuracy comparison for MNIST.}
+    \label{fig:mnist_accuracy}
+\end{figure}
+
 
 
 \subsection{CIFAR10 Dataset}\label{subsec:cifar10}
 
 The CIFAR10 dataset comprises 50,000 training and 10,000 testing color images of 10 classes.
-Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:pics/cifar10_loss}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:pics/cifar10_accuracy}.
+Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_loss}
+    \caption{Training and validation loss comparison for CIFAR10.}
+    \label{fig:cifar10_loss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_accuracy}
+    \caption{Training, validation, and test accuracy comparison for CIFAR10.}
+    \label{fig:cifar10_accuracy}
+\end{figure}
+
 
 
 \section{Conclusions}\label{sec:conclusions}
