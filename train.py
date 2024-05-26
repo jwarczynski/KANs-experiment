@@ -2,10 +2,15 @@ import torch
 from tqdm import tqdm
 
 from utils import device
+import torch.nn as nn
 
 
 def train(model, trainloader, valloader, optimizer, scheduler, criterion, epochs=10, input_size=32 * 32 * 3,
           summary_writer=None):
+    if torch.cuda.device_count() > 1:
+        print(f"Using {torch.cuda.device_count()} GPUs")
+        model = nn.DataParallel(model)
+
     model.to(device)
     model.train()
     for epoch in range(epochs):
