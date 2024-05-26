@@ -1,0 +1,89 @@
+%@descr: A template for a paper, a report or a thesis - suitable for modifications
+%@author: Maciej Komosiński
+
+\documentclass{article} 
+\usepackage[english]{babel} 
+\usepackage[utf8]{inputenc} 
+\usepackage[OT4]{fontenc}
+\usepackage{graphicx,color} %include pdf's (and png's for raster graphics... avoid raster graphics!)
+\usepackage{amsmath} %just for \eqref
+\usepackage{url}
+\usepackage{subcaption} % or \usepackage{subfigure}
+\usepackage{float} % for [H] placement specifier
+\usepackage{multicol}
+\usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref} % after all packages; pdfborder not implemented the same way for every implementation because the specification is imprecise; under miktex you just don't see the frames
+
+
+\input{_settings}
+
+%\title{}
+%\author{}
+%\date{}
+
+
+\begin{document}
+
+\input{_title}
+
+
+
+
+
+\begin{abstract}
+Kolmogorov-Arnold Networks (KANs), proposed as a promising alternative to Multilayer Perceptrons (MLPs),
+employ learnable activation functions on edges, represented as spline functions, inspired by the Kolmogorov-Arnold representation theorem.
+This paper investigates the influence of spline order and grid size on training, validation, and test accuracy, as well as loss, in KAN networks.
+Experimental analyses are conducted on two datasets, MNIST and CIFAR10, to explore the performance of KANs under varying parameters.
+\end{abstract}
+
+\section{Introduction}\label{sec:introduction}
+
+KANs\cite{liu2024kan}, introduced as a promising alternative to Multilayer Perceptrons (MLPs),
+are inspired by the Kolmogorov-Arnold representation theorem rather than the universal approximation theorem that underpins MLPs.
+While MLPs utilize fixed activation functions on nodes, KANs employ learnable activation functions on edges, represented as spline functions.
+This unique architecture eliminates traditional linear weight matrices in favor of a flexible and adaptive framework, potentially offering advantages in accuracy and parameter efficiency.
+
+The focus of our research lies in understanding how spline order and grid size impact the training, validation, testing accuracy, and loss in KANs.
+Through extensive empirical experiments conducted on two datasets, MNIST and CIFAR10, we aim to elucidate the optimal configuration of KANs for various tasks and datasets.
+
+\section{Experiments}\label{sec:experiments}
+
+\subsection{Experimental Setup}\label{subsec:experimental-setup}
+
+We conduct experiments on the MNIST and CIFAR10 datasets to evaluate the performance of KANs with varying spline orders and grid sizes.
+We set the number of layers to 4.
+The number of nodes in the hidden layers are 128, 64, 32, and 10, respectively.
+We use the Adam optimizer with a learning rate of 0.001 with exponential decay of 0.8 and a batch size of 64.
+The training process is run for 10 epochs.
+We evaluate the performance of KANs based on training, validation, and test accuracy, as well as loss.
+We have trained KANs with fixed spline order of 3 and grid sizes of 5, 10, 20, 40, 80, 160, 320, 640, and 1280 as well as
+models with fixed size of gird equal to 5 and spline orders ranging from 2 to 12.
+
+
+\subsection{MNIST Dataset}\label{subsec:mnist}
+
+The MNIST dataset consists of 60,000 training and 10,000 testing grayscale images of handwritten digits.
+The comaprison of traing and validation loss is presented on the left and right side of Figure~\ref{fig:pics/mnist_loss} respectively.
+The comparison of training, validation, and test accuracy is presented in Figure~\ref{fig:pics/mnist_accuracy}.
+
+
+\subsection{CIFAR10 Dataset}\label{subsec:cifar10}
+
+The CIFAR10 dataset comprises 50,000 training and 10,000 testing color images of 10 classes.
+Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:pics/cifar10_loss}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:pics/cifar10_accuracy}.
+
+
+\section{Conclusions}\label{sec:conclusions}
+
+
+\clearpage % let LaTeX put pending figures right here -- this command "releases" the accumulated content, which is useful if you have placed a lot of images, much more than text -- so they do not appear at the end of the document.
+
+
+%%%%%%%%%%%%%%%% references %%%%%%%%%%%%%%%%
+
+\bibliography{biblio}
+\bibliographystyle{plain}
+
+
+\end{document}
