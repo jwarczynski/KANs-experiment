@@ -59,51 +59,97 @@ The training process is run for 10 epochs.
 We evaluate the performance of KANs based on training, validation, and test accuracy, as well as loss.
 We have trained KANs with fixed spline order of 3 and grid sizes of 5, 10, 20, 40, 80, 160, 320, 640, and 1280 as well as
 models with fixed size of gird equal to 5 and spline orders ranging from 2 to 12.
+In all figures the training accuracy and loss is smoothed with a moving average of window size 2 and the scaling factor of 0.9
+for better visualization.
 
 
 \subsection{MNIST Dataset}\label{subsec:mnist}
 
 The MNIST dataset consists of 60,000 training and 10,000 testing grayscale images of handwritten digits.
-The comaprison of traing and validation loss is presented on the left and right side of Figure~\ref{fig:mnist_loss} respectively.
-The comparison of training, validation, and test accuracy is presented in Figure~\ref{fig:mnist_accuracy}.
+
+\subsubsection{Grid Size Influence}\label{subsubsec:grid-size-influence}
+
+We present the comparison of training and validation loss in Figure~\ref{fig:mnist_loss_grid_size}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:mnist_accuracy_grid_size} for KANs with varying grid sizes.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{pics/mnist_loss}
+    \includegraphics[width=0.9\textwidth]{pics/mnist_loss_grid_size}
     \caption{Training and validation loss comparison for MNIST.}
-    \label{fig:mnist_loss}
+    \label{fig:mnist_loss_grid_size}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{pics/mnist_accuracy}
+    \includegraphics[width=0.9\textwidth]{pics/mnist_accuracy_grid_size}
     \caption{Training, validation, and test accuracy comparison for MNIST.}
-    \label{fig:mnist_accuracy}
+    \label{fig:mnist_accuracy_grid_size}
 \end{figure}
 
+
+\subsubsection{Spline Order Influence}\label{subsubsec:spline-order-influence}
+
+We present the comparison of training and validation loss in Figure~\ref{fig:mnist_loss_spline_order}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:mnist_accuracy_spline_order} for KANs with varying spline orders.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/mnist_loss_spline_order}
+    \caption{Training and validation loss comparison for MNIST with varying spline orders.}
+    \label{fig:mnist_loss_spline_order}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/mnist_accuracy_spline_order}
+    \caption{Training, validation, and test accuracy comparison for MNIST with varying spline orders.}
+    \label{fig:mnist_accuracy_spline_order}
+\end{figure}
 
 
 \subsection{CIFAR10 Dataset}\label{subsec:cifar10}
 
 The CIFAR10 dataset comprises 50,000 training and 10,000 testing color images of 10 classes.
-Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy}.
+
+\subsubsection{Grid Size Influence}\label{subsubsec:grid-size-influence-cifar10}
+
+Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss_grid_size}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy_grid_size} for KANs with varying grid sizes.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{pics/cifar10_loss}
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_loss_grid_size}
     \caption{Training and validation loss comparison for CIFAR10.}
-    \label{fig:cifar10_loss}
+    \label{fig:cifar10_loss_grid_size}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{pics/cifar10_accuracy}
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_accuracy_grid_size}
     \caption{Training, validation, and test accuracy comparison for CIFAR10.}
-    \label{fig:cifar10_accuracy}
+    \label{fig:cifar10_accuracy_grid_size}
 \end{figure}
 
+
+\subsubsection{Spline Order Influence}\label{subsubsec:spline-order-influence-cifar10}
+
+Similarly to the MNIST dataset, we also present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss_spline_order}
+and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy_spline_order} for KANs with varying spline orders.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_loss_spline_order}
+    \caption{Training and validation loss comparison for CIFAR10 with varying spline orders.}
+    \label{fig:cifar10_loss_spline_order}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/cifar10_accuracy_spline_order}
+    \caption{Training, validation, and test accuracy comparison for CIFAR10 with varying spline orders.}
+    \label{fig:cifar10_accuracy_spline_order}
+\end{figure}
 
 
 \section{Conclusions}\label{sec:conclusions}
