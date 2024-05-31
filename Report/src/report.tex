@@ -11,7 +11,6 @@
 \usepackage{subcaption} % or \usepackage{subfigure}
 \usepackage{float} % for [H] placement specifier
 \usepackage{multicol}
-\usepackage{microtype}
 \usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref}
 %\usepackage{caption_2019-09-01} % after all packages; pdfborder not implemented the same way for every implementation because the specification is imprecise; under miktex you just don't see the frames
 
@@ -165,24 +164,20 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
 
 
 \section{Conclusions}\label{sec:conclusions}
-Our experiments on Kolmogorov-Arnold Networks have elucidated the effects of grid size and spline order on model performance.
-We found that larger grid sizes significantly enhance the model's capability to detail complex data patterns by providing more control points,
-thereby allowing for finer adjustments to the activation functions.
-This improvement in model granularity can markedly boost performance for tasks requiring detailed feature recognition.
-However, it also raises the risk of overfitting and increases the computational burden.
+Our experiments with Kolmogorov-Arnold Networks have provided clear insights into the impacts of grid size and spline order on model performance.
+Contrary to expectations, we discovered that smaller grid sizes significantly enhance both training and validation performance across the datasets studied.
+Interestingly, larger grid sizes, which provide more control points, were more disruptive than beneficial,
+likely due to the overwhelming number of potential adjustments preventing effective model tuning.
 
-Conversely, smaller grid sizes tend to simplify the model architecture,
-which reduces computational demands and mitigates the risk of overfitting but may compromise the ability to capture complex patterns effectively.
-In terms of spline orders, higher orders facilitate the capture of more intricate relationships within the data,
-due to the increased complexity of the spline functions.
-Although this complexity allows for a nuanced modeling of non-linear relationships, it simultaneously heightens the risk of overfitting and necessitates rigorous regularization strategies.
-Lower spline orders produce simpler spline functions, which are less susceptible to overfitting and foster better generalization,
-although they may overlook subtle intricacies in data features.
+In terms of spline orders, the increased complexity of the spline functions initially did not improve performance during the training phase and sometimes even underperformed compared to models with fewer spline orders.
+However, during the validation phase, higher spline orders proved advantageous, suggesting that they are better suited for capturing more nuanced features that are not apparent during training.
+Conversely, lower spline orders, while simplifying the model, tended to overlook subtle data intricacies, which hampered their ability to generalize effectively.
 
-These observations highlight the critical balance between model complexity and performance efficacy,
-underscoring the need for carefully selecting grid size and spline order based on the specific requirements and constraints of each task.
-Looking ahead, the best approach would be developing adaptive mechanisms that can dynamically adjust these parameters in response to changes in data characteristics during training.
-This approach could potentially optimize both the efficiency and accuracy of KANs across a broader range of applications.
+These findings underscore the delicate balance between model complexity and performance efficacy.
+They highlight the importance of meticulously selecting grid size and spline order to align with the specific demands and limitations of each task.
+Looking forward, the most promising strategy appears to be the development of adaptive mechanisms that dynamically adjust these parameters in response to evolving data characteristics during training.
+Such adaptive strategies could significantly enhance both the efficiency and the accuracy of KANs, broadening their applicability across diverse applications.
+
 
 \clearpage % let LaTeX put pending figures right here -- this command "releases" the accumulated content, which is useful if you have placed a lot of images, much more than text -- so they do not appear at the end of the document.
 
