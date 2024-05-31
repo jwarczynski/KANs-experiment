@@ -4,13 +4,14 @@
 \documentclass{article} 
 \usepackage[english]{babel} 
 \usepackage[utf8]{inputenc} 
-\usepackage[OT4]{fontenc}
-\usepackage{graphicx,color} %include pdf's (and png's for raster graphics... avoid raster graphics!)
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} %include pdf's (and png's for raster graphics... avoid raster graphics!)
 \usepackage{amsmath} %just for \eqref
 \usepackage{url}
 \usepackage{subcaption} % or \usepackage{subfigure}
 \usepackage{float} % for [H] placement specifier
 \usepackage{multicol}
+\usepackage{microtype}
 \usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref}
 %\usepackage{caption_2019-09-01} % after all packages; pdfborder not implemented the same way for every implementation because the specification is imprecise; under miktex you just don't see the frames
 
@@ -51,17 +52,28 @@ Through extensive empirical experiments conducted on two datasets, MNIST and CIF
 
 \subsection{Experimental Setup}\label{subsec:experimental-setup}
 
-We conduct experiments on the MNIST and CIFAR10 datasets to evaluate the performance of KANs with varying spline orders and grid sizes.
-We set the number of layers to 4.
-The number of nodes in the hidden layers are 128, 64, 32, and 10, respectively.
-We use the Adam optimizer with a learning rate of 0.001 with exponential decay of 0.8 and a batch size of 64.
-The training process is run for 10 epochs.
-We evaluate the performance of KANs based on training, validation, and test accuracy, as well as loss.
-We have trained KANs with fixed spline order of 3 and grid sizes of 5, 10, 20, 40, 80, 160, 320, 640, and 1280 as well as
-models with fixed size of gird equal to 5 and spline orders ranging from 2 to 12.
-In all figures the training accuracy and loss is smoothed with a moving average of window size 2 and the scaling factor of 0.9
-for better visualization.
+We conduct experiments on the MNIST and CIFAR10 datasets to evaluate the performance of Kolmogorov-Arnold Networks (KANs) with varying spline orders and grid sizes.
+The grid size is a critical parameter, dictating the number of control points for the spline functions that define the learnable activation functions on the network's edges.
+It modulates the granularity of the spline approximation, allowing for finer or coarser representations of data.
+Conversely, the spline order determines the degree of the spline polynomials used in these activation functions, influencing the complexity and flexibility of the model's response to input variations.
+\newline
+\newline
+Our experimental setup includes:
+\begin{itemize}
+    \item Network Configuration: 4 layers with the number of nodes in the hidden layers set at 128, 64, 32, and 10, respectively.
+    \item Optimization: We use the Adam optimizer with a learning rate of 0.001, exponential decay of 0.8, and a batch size of 64.
+    \item Duration: The training process spans 10 epochs.
+    \item Performance Metrics: We assess the KANs based on training, validation, and test accuracies, as well as loss metrics.
+\end{itemize}
 
+\noindent Specific training configurations tested include:
+\begin{itemize}
+    \item Models with a fixed spline order of 3 across various grid sizes (5, 10, 20, 40, 80, 160, 320, 640, and 1280).
+    \item Models with a constant grid size of 5 and varying spline orders from 2 to 12.
+\end{itemize}
+
+\noindent To enhance visualization, all figures depicting training accuracy and loss are smoothed using a moving average with a window size of 2 and a scaling factor of 0.9.
+\newline
 
 \subsection{MNIST Dataset}\label{subsec:mnist}
 
@@ -153,7 +165,24 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
 
 
 \section{Conclusions}\label{sec:conclusions}
+Our experiments on Kolmogorov-Arnold Networks have elucidated the effects of grid size and spline order on model performance.
+We found that larger grid sizes significantly enhance the model's capability to detail complex data patterns by providing more control points,
+thereby allowing for finer adjustments to the activation functions.
+This improvement in model granularity can markedly boost performance for tasks requiring detailed feature recognition.
+However, it also raises the risk of overfitting and increases the computational burden.
 
+Conversely, smaller grid sizes tend to simplify the model architecture,
+which reduces computational demands and mitigates the risk of overfitting but may compromise the ability to capture complex patterns effectively.
+In terms of spline orders, higher orders facilitate the capture of more intricate relationships within the data,
+due to the increased complexity of the spline functions.
+Although this complexity allows for a nuanced modeling of non-linear relationships, it simultaneously heightens the risk of overfitting and necessitates rigorous regularization strategies.
+Lower spline orders produce simpler spline functions, which are less susceptible to overfitting and foster better generalization,
+although they may overlook subtle intricacies in data features.
+
+These observations highlight the critical balance between model complexity and performance efficacy,
+underscoring the need for carefully selecting grid size and spline order based on the specific requirements and constraints of each task.
+Looking ahead, the best approach would be developing adaptive mechanisms that can dynamically adjust these parameters in response to changes in data characteristics during training.
+This approach could potentially optimize both the efficiency and accuracy of KANs across a broader range of applications.
 
 \clearpage % let LaTeX put pending figures right here -- this command "releases" the accumulated content, which is useful if you have placed a lot of images, much more than text -- so they do not appear at the end of the document.
 
