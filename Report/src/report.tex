@@ -81,7 +81,7 @@ The MNIST dataset consists of 60,000 training and 10,000 testing grayscale image
 \subsubsection{Grid Size Influence}\label{subsubsec:grid-size-influence}
 
 We present the comparison of training and validation loss in Figure~\ref{fig:mnist_loss_grid_size}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:mnist_accuracy_grid_size} for KANs with varying grid sizes.
+and the comparison of training and validation accuracy in Figure~\ref{fig:mnist_accuracy_grid_size} for KANs with varying grid sizes.
 
 
 \begin{figure}[H]
@@ -94,15 +94,40 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{pics/mnist_accuracy_grid_size}
-    \caption{Training, validation, and test accuracy comparison for MNIST.}
+    \caption{Training and validation accuracy comparison for MNIST.}
     \label{fig:mnist_accuracy_grid_size}
 \end{figure}
+
+
+The test accuracy results for KANs with varying grid sizes are presented in Table~\ref{tab:test_accuracy_grid_size}.
+
+\begin{table}[H]
+    \centering
+    \caption{Test accuracy for KANs with varying grid sizes on the MNIST dataset.}
+    \label{tab:test_accuracy_grid_size}
+    \begin{tabular}{|c|c|}
+        \hline
+        Grid Size & Test Accuracy \\
+        \hline
+        \textbf{5}    & \textbf{0.551851} \\
+        10   & 0.521994 \\
+        20   & 0.504479 \\
+        40   & 0.496019 \\
+        80   & 0.479001 \\
+        160  & 0.446855 \\
+        320  & 0.438296 \\
+        640  & 0.375697 \\
+        2560 & 0.328921 \\
+        \hline
+    \end{tabular}
+\end{table}
+
 
 
 \subsubsection{Spline Order Influence}\label{subsubsec:spline-order-influence}
 
 We present the comparison of training and validation loss in Figure~\ref{fig:mnist_loss_spline_order}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:mnist_accuracy_spline_order} for KANs with varying spline orders.
+and the comparison of training and validation accuracy in Figure~\ref{fig:mnist_accuracy_spline_order} for KANs with varying spline orders.
 
 \begin{figure}[H]
     \centering
@@ -119,6 +144,33 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
 \end{figure}
 
 
+The test accuracy results for KANs with varying spline orders are presented in decreasing by accuracy order in Table~\ref{tab:test_accuracy_spline_order}.
+
+\begin{table}[H]
+    \centering
+    \caption{Test accuracy for KANs with varying spline orders on the MNIST dataset.}
+    \label{tab:test_accuracy_spline_order}
+    \begin{tabular}{|c|c|}
+        \hline
+        Spline Order & Test Accuracy \\
+        \hline
+        \textbf{9}           & \textbf{0.975870} \\
+        8           & 0.975376 \\
+        11          & 0.974782 \\
+        4           & 0.974288 \\
+        7           & 0.974189 \\
+        6           & 0.974189 \\
+        5           & 0.973695 \\
+        12          & 0.973695 \\
+        3           & 0.973596 \\
+        10          & 0.973101 \\
+        2           & 0.970134 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
 \subsection{CIFAR10 Dataset}\label{subsec:cifar10}
 
 The CIFAR10 dataset comprises 50,000 training and 10,000 testing color images of 10 classes.
@@ -126,7 +178,7 @@ The CIFAR10 dataset comprises 50,000 training and 10,000 testing color images of
 \subsubsection{Grid Size Influence}\label{subsubsec:grid-size-influence-cifar10}
 
 Similarly to the MNIST dataset, we present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss_grid_size}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy_grid_size} for KANs with varying grid sizes.
+and the comparison of training and validation accuracy in Figure~\ref{fig:cifar10_accuracy_grid_size} for KANs with varying grid sizes.
 
 \begin{figure}[H]
     \centering
@@ -143,10 +195,34 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
 \end{figure}
 
 
+The test accuracy results for KANs with varying grid sizes on the CIFAR10 dataset are presented in Table~\ref{tab:test_accuracy_grid_size_cifar10}.
+
+\begin{table}[H]
+    \centering
+    \caption{Test accuracy for KANs with varying grid sizes on the CIFAR10 dataset.}
+    \label{tab:test_accuracy_grid_size_cifar10}
+    \begin{tabular}{|c|c|}
+        \hline
+        Grid Size & Test Accuracy \\
+        \hline
+        \textbf{5}    & \textbf{0.551851} \\
+        10   & 0.521994 \\
+        20   & 0.504479 \\
+        40   & 0.496019 \\
+        80   & 0.479001 \\
+        160  & 0.446855 \\
+        320  & 0.438296 \\
+        640  & 0.375697 \\
+        2560 & 0.328921 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 \subsubsection{Spline Order Influence}\label{subsubsec:spline-order-influence-cifar10}
 
 Similarly to the MNIST dataset, we also present the comparison of training and validation loss in Figure~\ref{fig:cifar10_loss_spline_order}
-and the comparison of training, validation, and test accuracy in Figure~\ref{fig:cifar10_accuracy_spline_order} for KANs with varying spline orders.
+and the comparison of training and validation accuracy in Figure~\ref{fig:cifar10_accuracy_spline_order} for KANs with varying spline orders.
 
 \begin{figure}[H]
     \centering
@@ -161,6 +237,32 @@ and the comparison of training, validation, and test accuracy in Figure~\ref{fig
     \caption{Training, validation, and test accuracy comparison for CIFAR10 with varying spline orders.}
     \label{fig:cifar10_accuracy_spline_order}
 \end{figure}
+
+
+The test accuracy results for KANs with varying spline orders on the CIFAR10 dataset are presented in Table~\ref{tab:test_accuracy_spline_order_cifar10}.
+
+\begin{table}[H]
+    \centering
+    \caption{Test accuracy for KANs with varying spline orders on the CIFAR10 dataset.}
+    \label{tab:test_accuracy_spline_order_cifar10}
+    \begin{tabular}{|c|c|}
+        \hline
+        Spline Order & Test Accuracy \\
+        \hline
+        \textbf{9}  & \textbf{0.552647} \\
+        10 & 0.550557 \\
+        6  & 0.550358 \\
+        11 & 0.549264 \\
+        12 & 0.548666 \\
+        4  & 0.547870 \\
+        8  & 0.547174 \\
+        7  & 0.546676 \\
+        5  & 0.541103 \\
+        3  & 0.551851 \\
+        2  & 0.539411 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 
 \section{Conclusions}\label{sec:conclusions}
